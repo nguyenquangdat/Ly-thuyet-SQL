@@ -1,0 +1,65 @@
+-IF(Bieu Thuc dieu kien)
+begin
+
+end
+else
+Begin
+
+end
+
+---example : 
+Declare @dbt  float;
+SEt @dbt = 6.5
+if @dbt <5
+begin
+ PRINT 'yeu'
+end
+ELSE 
+  BEGIN
+	if @dbt <6.5
+		PRINT 'Trung binh'
+	ELSE 
+		PRIN 'KHA'
+  END
+------------------
+c2
+IIF (expression , expresstion_true , expresstion_False)
+
+example: SELECT IFF(LUONG>3000 , 'Truong phong','Nhan Vien')
+as ChucVU, TenNV , Luong
+From NHAN VIEN
+exemple2 : 
+SELECT  PHG,COUNT(MANV) as Count,
+'TRANG THAI' = IIF(COUNT(MANV) <3 , 'thieu nhan vien' , IIF(COUNT(MANV) >5,'du nhan vien','Dong NHan VIEn'))
+from NHANVIEN
+Group by PHG
+--------------------------
+-Ham Case trong SQL
++Ham CASE kiem dinh gia tri dua tren danh sach dieu kien dua ra , sau do tra ve 1
+hoac nhieu ket qua
++ Simple Case la so sanh 1 bieu thuc voi mot bộ các biểu thức đơn giản để xác định kết quả
+++ Cú pháp CASE<Biểu thức>
+ 		When <Bieu thức 1> THEN KQ1
+		WHEN <Bieu thuc 2> THEN KQ2
+		ELSE <Bieu thức kết quả mệnh đề ELSE>
+		END
+example : 
+SELECT TENNV = case PHAT
+	WHEN 'nam ' then 'MR' + TENNV
+	WHEN 'Nu' then 'MS' + TENNV
+End
+From NHANVIEN
++ SEarched CASE : đánh giá một  bộ các biểu thức Boolean để xác định kết quả
+++ Cú pháp CASE 
+		WHEN biểu_thức_điểu_kiện_1 then biểu thức kết quả 1
+		WHEN biểu thức_điều_kiện_2 then biểu_thức_kết_quả_2
+		....
+		Else biểu thức kết quả
+		end
+example:
+SELECT TENNV,LUONG,THUE = case
+WHEN LUONG between 0 and 25000 then LUONG * 0.1
+WHEN LUONG between 25000 and 30000 then LUONG*0.2
+ELSE LUONG *0.5
+END
+from NHAN VIEN 
