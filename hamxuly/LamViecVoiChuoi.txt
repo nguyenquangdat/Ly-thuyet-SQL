@@ -1,0 +1,32 @@
+LEN(string) : tra ve so luong ky tu , cả khoảng trắng
+LTRIM(string) : trả về chuỗi với các ký tự , trim đầu
+RTRIM(string): trả về chuỗi với các ký tự , trim cuối
+LEFT(string,length): trả về chuỗi con chiều dài length tính từ đầu
+RIGTH(string,length) : trả về chuỗi con có chiều dài tính từ cuối
+
++example : LEN('SQL Server')  --> 10
+	   LTRIM(RTRIM(' SQL SERVER ')) -->'SQL SERVER'  ---- trim 2 dau
+
+------------------------
+-CHARINDEX : tim kiếm vị trí của 1 chuỗi 
++ cú pháp : CHARINDEX(find,search,[start]) -- search co the la ten cột 
+++ example : CHARINDEX ('Se','SQL Server') --> =5 
+------------------------
+-SUBTRING : Trả về các ký tự trong 1 chuỗi 
++SUBSTRING(string,start,length)
+++ Example : SUBSTRING('SQLSERVER',5,3)
+--------------------------
+-REPLACE(search , find,replace)
+++exemple : REPLACE('123-444','-','/') -->123/444
+--------------------------
+- REVERSE(string) , LOWER(string), UPPER(string),SPACE(STRING)
+++ exemple : LOWER('SQL SERVER') --> 'sql server'
+
+// 1 so van de voi kieu chuoi
+	Name
+VD : ABC DEFT
+  --> LEFT(Name,(CHARINDEX(' ',NAME)-1))  --> ABC
+  --> RIGTH(Name,LEN(Name)- CHARINDEX(' ',NAME)) --> DEFT
+
+----------------------
+Nối chuỗi dùng concat hoặc dấu +

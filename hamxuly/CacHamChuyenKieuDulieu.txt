@@ -1,0 +1,17 @@
+chuyển đổi ngầm định : uu tien thap --> uu tien cao
+chuyển đổi tường minh :
+ + sử dụng hàm CAST or CONVERT
+ +Cú pháp CAST :
+ --CAST(<Biểu thức> AS <Kiểu dữ liệu>(length))
+ example: SELECT 'TO Day is' + CAST(GETDATE() as nvarchar) 
+          CAST (123 as decimal(6,2)) ----> 123.00
+
+ + Cú Pháp CONVERT
+ --CONVERT(<Kiểu dữ liệu>(length),<Biểu thức>,Tham số định dạng)
+ example: CONVERT (Varchar(20),123.56) ---> 123.56	
+ tham số định dạng thường dùng cho ngày : SELECT 'TO Day is' + CONVERT(VARCHAR,GETDATE,101)
+  101 = mm/dd/yyyy
+  103 = dd/mm/yyyy
+  105 = dd-mm-yyyy
+  107 = Mon dd,yyyy
+  110 = mm-dd-yyyy
