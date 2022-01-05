@@ -1,0 +1,56 @@
+Stored Procedure lưu trữ một tập hopwk các câu lệnh SQL
+và các câu lệnh lập trình đi kèm trong cơ sở
+dữ liệu, cho phép tái sử dụng khi cần
+hỗ trợ các ứng dụng tương tác nhanh , chính xác
+-------------------------------
+Đặc điểm:
+ + chấp  nhận những tham số vào --> trả về giá trị được chứa trong các tham 
+số
+  + chứa lệnh gọi thủ tục khác
+  + trả về trạng thái giá trị
+ưu điểm :
+	+ tái sử dụng
+ 	+ nhanh hơn
+	+ giảm vấn đề kẹt đường truyền , mạng , dữ liệu được gửi theo gói
+	+ sử dụng trong vấn đề bảo mật phân quyền
+
+-------------------------------
+cấu trúc : 
+CREATE PROCEDURE procedure_name
+		@parameter data_type input/output
+as
+begin
+	handding data
+end
+------------------------
+vd: CREATE PROCEDURE sp_TONG @So1 int , @So2 int
+as 
+BEGIN
+Declare @tong int;
+set @tong = @so1 + @so2;
+Prinf @tong
+End
+--thuc hien: declare @sum
+int Exec sp_TONG 1,2
+--- Tao stored-procedure co tham so dau ra
+CREATE PROCUDE sp_Tong  @So1 int, @so2 int , @Tong int out
+As
+Begin
+SET @Tong = @So1 + @So2
+END
+--thuc hien Declare @sum
+		    int Exec sp_Tong 1, -2 ,@Sum out
+		    Select @Sum
+--- Tao store-procedure co return data
+CREATE Procedure Demnv
+@cityvar nvarchar(30)
+as
+	DECLARE @num int
+	Select @num = Count(*) From NHANVIEN
+	WHERE DCHI like '%' + @cityvar
+return @num
++thu hien : DECLARE @tống int
+	    EXEC @tongso = Demnv 'HN'
+	    select @tongso
+------------------------
+muon thay doi procedure chi can thay create -> alter

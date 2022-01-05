@@ -2,7 +2,7 @@ GETDATE():LAY ngay thang nam gio phut day
 CONVERT(date,GETDATE()) : lay ngay thang nam
 CONVERT(tim,GETDATE()) : lay gioi phut giay
 
-hiển thị từng phần trong ngày tháng năm 
+hiển thị từng phần trong ngày tháng năm // hien tai
 SELECT year(GETDATE()) as year,
        month(GETDATE()) as month,
        day(GETDATE()) as day
@@ -12,4 +12,7 @@ SELECT year(GETDATE()) as year,
 
 --- chu y SQL luu thang / ngay nam 
 -- insert phai theo thang ngay nam 
-lay dinh dang ngya thang nam --> dugnf CONVERT voi tham so dinh dang la 103 or 3
+lay dinh dang ngya thang nam --> dung CONVERT voi tham so dinh dang la 103 or 3
+
+----
+DATENAME(year,tenbang) -> lay trong bang
